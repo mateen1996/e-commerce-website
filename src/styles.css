@@ -1,0 +1,67 @@
+
+body {
+    font-family: sans-serif;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .container {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .common-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+  }
+  .form-input {
+    height: 35px;
+    margin-bottom: 20px;
+    border: 1px solid #0D6EFD;
+    padding-left: 15px;
+    color: #0D6EFD;
+  }
+  .form-button {
+    height: 35px;
+    border: 1px solid #0D6EFD;
+    color: #0D6EFD;
+    cursor: pointer;
+  }
+  .error-p{
+    color: red;
+  }
+  
+  .message-p{
+    color: green;
+    text-align: center;
+  }
+  
+  .carousel-caption {
+    background-color: #0000007d;
+    border-radius: 10px;
+  }
+  .carousel-control-next-icon, .carousel-control-prev-icon{
+    background-color: black;
+    border-radius: 5px;
+  }
+  
+  .invalid-input{
+    color: red;
+    font-size: 12px;
+    margin-top:-20px
+  }
+  button:disabled{
+    cursor: not-allowed;
+  }
+  .max-width{
+    width: 100%;
+  }
+
+  .icon-hover:hover {
+    border-color: #3b71ca !important;
+    background-color: white !important;
+  }
+  
+  .icon-hover:hover i {
+    color: #3b71ca !important;
+  }

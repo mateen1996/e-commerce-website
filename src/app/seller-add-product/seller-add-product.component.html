@@ -1,0 +1,56 @@
+
+<div class="row justify-content-center p-5">
+    <div class="col-md-8 order-md-1">
+        <h2 class="mb-3">Add New Product</h2>
+        <form class="needs-validation" #addProductForm="ngForm" (ngSubmit)="addProduct(addProductForm)">
+
+            <div class=" mb-3">
+                <label for="firstName">Product Name</label>
+                <input type="text" class="form-control" name="productName" id="ProductName"
+                    [(ngModel)]="newProduct.productName" #productName="ngModel" required>
+                    <small class="invalid-input" *ngIf="productName.invalid && productName.touched">Please Enter Product Name</small>
+            </div>
+            <div class=" mb-3">
+                <label for="lastName">Product Price</label>
+                <input type="text" class="form-control" name="productPrice" id="ProductPrice"
+                    [(ngModel)]="newProduct.productPrice" #productPrice="ngModel" required>
+                    <small class="invalid-input" *ngIf="productPrice.invalid && productPrice.touched">Please Enter Product Price</small>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="email">Product Category</label>
+                <input type="text" class="form-control" name="productCategory" id="productCategory"
+                    [(ngModel)]="newProduct.productCategory" #productCategory="ngModel" required>
+                    <small class="invalid-input" *ngIf="productCategory.invalid && productCategory.touched">Please Enter Product Category</small>
+                    
+            </div>
+
+            <div class="mb-3">
+                <label for="address">Product Color</label>
+                <input type="text" class="form-control" name="productColor" id="productColor"
+                    [(ngModel)]="newProduct.productColor" #productColor="ngModel" required="">
+                    <small class="invalid-input" *ngIf="productColor.invalid && productColor.touched">Please Enter Product Color</small>
+
+            </div>
+            <div class="mb-3">
+                <label for="address">Product Image (Image URL Only)</label>
+                <input type="text" class="form-control" name="productImage" id="productImage"
+                    [(ngModel)]="newProduct.productImage" #productImage="ngModel" required>
+                    <small class="invalid-input" *ngIf="productImage.invalid && productImage.touched">Please Enter Product Image</small>
+
+            </div>
+            <div class="mb-3">
+                <label for="address">Product Description</label>
+                <textarea name="productDescription" id="productDescription" cols="10" rows="5" class="form-control"
+                [(ngModel)]="newProduct.productDescription" #productDescription="ngModel" required></textarea>
+                <small class="invalid-input" *ngIf="productDescription.invalid && productDescription.touched">Please Enter Product Description</small>
+
+            </div>
+           <div class="text-center">
+            <p [ngClass]="'alert alert-success'" *ngIf="showMessage">{{addProductMessage}}</p>
+            <button class="btn btn-primary" type="submit" [disabled]="addProductForm.invalid">Add Product</button>
+            </div>
+        </form>
+    </div>
+</div>

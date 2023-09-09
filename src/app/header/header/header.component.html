@@ -1,0 +1,128 @@
+
+<header>
+    <!-- Jumbotron -->
+    <div class="p-3 text-center bg-white border-bottom">
+        <div class="container">
+            <div class="row gy-3">
+                <!-- Left elements -->
+                <div class="col-lg-2 col-sm-4 col-4">
+                    <a routerLink="" class="float-start">
+                        <img src="assets/images/e-commerce.jpg" height="80" alt="Ecommerce" />
+                    </a>
+                </div>
+                <!-- Left elements -->
+
+                <!-- Center elements -->
+                <!-- <div class="order-lg-last col-lg-5 col-sm-8 col-8">
+                    <div class="d-flex float-end">
+                        <a routerLink="#" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center"> <i
+                                class="fas fa-user-alt m-1 me-md-2"></i>
+                            <p class="d-none d-md-block mb-0">Sign in</p>
+                        </a>
+                        <a routerLink="#" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center"> <i
+                                class="fas fa-heart m-1 me-md-2"></i>
+                            <p class="d-none d-md-block mb-0">Wishlist</p>
+                        </a>
+                        <a routerLink="#" class="border rounded py-1 px-3 nav-link d-flex align-items-center"> <i
+                                class="fas fa-shopping-cart m-1 me-md-2"></i>
+                            <p class="d-none d-md-block mb-0">My cart</p>
+                        </a>
+                    </div>
+                </div> -->
+                <!-- Center elements -->
+
+                <!-- Right elements -->
+                <div class="col-lg-5 col-md-12 col-12">
+                    <div class="input-group float-center" *ngIf="menuType === 'default'" >
+                        <div class="nav-search float-center">
+                            <input type="text" #searchInput 
+                            (keyup)="searchProduct($event)" (blur)="hideSearch()"
+                                placeholder="Search Products">
+                            <button (click)="submitSearch(searchInput.value)">search</button>
+                            <ul class="suggested-search" *ngIf="searchResult">
+                                <li *ngFor="let item of searchResult">
+                                    <a (mousedown)="redirectTodetails(item.id)">{{item.productName}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right elements -->
+            </div>
+        </div>
+    </div>
+    <!-- Jumbotron -->
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <!-- Container wrapper -->
+        <div class="container justify-content-center justify-content-md-between">
+            <!-- Toggle button -->
+            <!-- <button class="navbar-toggler border py-2 text-white" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button> -->
+
+            <!-- Collapsible wrapper collapse navbar-collapse -->
+            <div class="ms-auto" id="navbarLeftAlignExample" [ngSwitch]="menuType">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngSwitchCase="'default'">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" routerLink="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" aria-current="page" routerLink="seller-auth">Seller</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" routerLink="/user-auth">Login / SignUp</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" routerLink="#">Cart({{cartItems}})</a>
+                    </li>
+                </ul>
+                <!-- Left links -->
+                <!-- seller menutype -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngSwitchCase="'seller'">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" aria-current="page" routerLink="seller-add-product">Add
+                            Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" routerLink="seller-home">List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" >{{sellerName |titlecase}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-light" (click)="logOut()">Logout</button>
+                    </li>
+                </ul>
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngSwitchCase="'user'">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" routerLink="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" aria-current="page" routerLink="seller-auth">Seller</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" [routerLink]="cartItems>0?'/cart-page':null">Cart({{cartItems}})</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" routerLink="/my-order">My Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white">{{username | titlecase}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-light" (click)="logoutUser()">Logout</button>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+</header>

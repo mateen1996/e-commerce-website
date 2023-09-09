@@ -1,0 +1,12 @@
+.toggel-link
+{
+    font-size: 18px;
+    text-decoration: none;
+    align-items: center;
+}
+
+.toggel-link:hover
+{
+    font-size: 18px;
+    text-decoration: underline;
+}

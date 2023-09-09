@@ -1,0 +1,78 @@
+<section class="py-5">
+    <div class="container" *ngIf="productDetails">
+        <div class="row gx-5">
+            <aside class="col-lg-6">
+                <div class="border rounded-4 mb-3 d-flex justify-content-center">
+                    <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image"
+                        href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp">
+                        <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit"
+                            src="{{productDetails.productImage}}" />
+                    </a>
+                </div>
+            </aside>
+            <main class="col-lg-6">
+                <div class="ps-lg-3">
+                    <h4 class="title text-dark">
+                        <b>
+                            {{productDetails.productName}}
+                        </b>
+                    </h4>
+                    <div class="d-flex flex-row my-3">
+                        <div class="text-warning mb-1 me-2">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="ms-1">
+                                4.5
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <span class="h5"><b>{{productDetails.productPrice | currency:'INR'}}</b></span>
+                    </div>
+
+                    <p>
+                        {{productDetails.productDescription}}
+                    </p>
+
+                    <div class="row">
+                        <span><b>Color: </b></span>
+                        <h5 class="product-color" [style.backgroundColor]="productDetails.productColor"></h5>
+                        <h5>Category: {{productDetails.productCategory}}</h5>
+                    </div>
+
+                    <hr />
+
+                    <div class="row mb-4">
+                        <div class="col-md-4 col-6 mb-3">
+                            <label class="mb-2 d-block">Quantity</label>
+                            <div class="input-group mb-3" style="width: 170px;">
+                                <button class="btn btn-white border border-secondary px-3" type="button" id=""
+                                    data-mdb-ripple-color="dark" (click)="handleQuenctity('min');">
+                                    -
+                                </button>
+                                <input type="text" class="form-control text-center border border-secondary"
+                                    placeholder="{{productQuantity}}" />
+                                <button class="btn btn-white border border-secondary px-3" type="button" id=""
+                                    data-mdb-ripple-color="dark" (click)="handleQuenctity('plus');">
+                                    +
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-warning shadow-0 px-2 pt-2"> Buy now </a>
+                    <a class="btn btn-primary shadow-0 me-1" (click)="addTocart()" *ngIf="!removeCart"> Add to
+                        cart
+                    </a>
+                    <a class="btn btn-primary shadow-0 me-1" (click)="removeTocart(productDetails.id)" *ngIf="removeCart">Remove to
+                        cart
+                    </a>
+                </div>
+            </main>
+        </div>
+    </div>
+</section>
+<!-- content -->

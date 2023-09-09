@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>Checkout form</h2>
+        <p class="alert alert-success" *ngIf="hideMessage">{{orderMessage}}</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+            <h4 class=" align-items-center mb-3">
+                <h6 class="">Total Amount:{{totalPrice}}</h6>
+                <h6 class="">Payment Method: <b>Pay On Delivery</b></h6>
+            </h4>
+        </div>
+        <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Billing address</h4>
+            <form class="needs-validation" #orderData="ngForm" (ngSubmit)="orderNow(orderData)">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName">First name</label>
+                        <input type="text" class="form-control" id="firstName" name="firstname"
+                            [(ngModel)]="orderDataForm.firstName" #firstname="ngModel" required>
+                        <small class="invalid-input" *ngIf="firstname.invalid && firstname.touched">Please Enter First
+                            Name </small>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName">Last name</label>
+                        <input type="text" class="form-control" id="lastName" name="lastname"
+                            [(ngModel)]="orderDataForm.lastName" #lastname="ngModel" required>
+                        <small class="invalid-input" *ngIf="lastname.invalid && lastname.touched">Please Enter Last Name
+                        </small>
+
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="orderDataForm.email" #email="ngModel" email required>
+                    <small class="invalid-input" *ngIf="email.invalid && email.touched">Please Enter Email Id
+                    </small>
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" name="address"
+                        [(ngModel)]="orderDataForm.address" #address="ngModel" required>
+                    <small class="invalid-input" *ngIf="address.invalid && address.touched">Please Enter Address</small>
+                </div>
+
+                <div class="mb-3">
+                    <label for="address">Mobile Number</label>
+                    <input type="text" class="form-control" id="mobileNumber" name="mobileNumber"
+                        [(ngModel)]="orderDataForm.mobileNumber" #mobilenumber="ngModel" minlength="10" required> 
+                    <small class="invalid-input" *ngIf="mobilenumber.invalid && mobilenumber.touched">Please Enter valid Mobile Number</small>
+                </div>
+
+                <button class="btn btn-primary  btn-block float-end" type="submit" [disabled]="orderData.invalid">Order Now</button>
+            </form>
+        </div>
+    </div>
+</div>

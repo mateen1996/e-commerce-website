@@ -1,0 +1,89 @@
+<section class="bg-light my-5">
+    <div class="container">
+        <div class="row" >
+            <!-- cart -->
+            <div class="col-lg-12">
+                <div class="card border shadow-0">
+                    <div class="m-4">
+                        <div class="row gy-3 mb-4">
+                            <div class="col-lg-4">
+                                <div class="me-lg-5">
+                                    <div class="d-flex">
+                                        <h6>Orders</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+                                <div class="">
+                                    <h6>Order Id</h6>
+                                   
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+                                <h6 class="h6">Price</h6>
+                              
+                            </div>
+                            <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+                                <h6 class="h6">Status:</h6>
+                              
+                            </div>
+                            <div
+                                class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
+                                <div class="float-md-end">
+                                   <h6>Action</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- cart -->
+        </div>
+        <div class="row" >
+            <!-- cart -->
+            <div class="col-lg-12" *ngFor="let order of orderData">
+                <div class="card border shadow-0">
+                    <div class="m-4">
+                        <div class="row gy-3 mb-4">
+                            <div class="col-lg-4">
+                                <div class="me-lg-5">
+                                    <div class="d-flex">
+                                        <img src="" class="border rounded me-3" style="width: 96px; height: 96px;" />
+                                        <div class="">
+                                            <a href="#" class="nav-link"></a>
+                                            <p class="text-muted"></p>
+                                            <p class="text-muted"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+                                <div class="">
+                                   
+                                    <h5>{{order.id}}</h5>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+                             
+                                <h5>{{order.totalPrice}}</h5>
+                            </div>
+                            <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+                              
+                                <h5>In Progress</h5>
+                            </div>
+                            <div
+                                class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
+                                <div class="float-md-end">
+                                    <a (click)="cancelOrder(order.id)" class="btn btn-light border text-danger icon-hover-danger">Cancel Order</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- cart -->
+        </div>
+    </div>
+</section>
+<!-- cart + summary -->
+<!-- Recommended -->

@@ -1,0 +1,95 @@
+<div class="mt-2" *ngIf="!showLogin">
+    <section class="vh-100 bg-image" style="background-color: #0D6EFD">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center mt-2">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+                                <p class="alert alert-success" *ngIf="hideAlert">{{registrationSucessMsg}}</p>
+                                <h2 class="text-uppercase text-center mb-3">Create an account</h2>
+                                <form #userSignUpForm="ngForm" (ngSubmit)="usersignUp(userSignUpForm)">
+                                    <div class="form-outline mb-2">
+                                        <label class="form-label" for="form3Example1cg">User Name</label>
+                                        <input type="text" class="form-control form-control-lg" id="name" name="name"
+                                            [(ngModel)]="userSignUp.name" #name="ngModel" required>
+                                            <small class="invalid-input" *ngIf="name.invalid && name.touched">Please Enter a User Name</small>
+                                    </div>
+
+                                    <div class="form-outline mb-2">
+                                        <label class="form-label" for="form3Example3cg">Your Email</label>
+                                        <input type="email" class="form-control form-control-lg" id="email" name="email"
+                                            [(ngModel)]="userSignUp.email" #email="ngModel" required email>
+                                            <small class="invalid-input" *ngIf="name.invalid && name.touched">Please Enter a valid Email Id</small>
+                                    </div>
+                                    <div class="form-outline mb-2">
+                                        <label class="form-label" for="form3Example4cg">Password</label>
+                                        <input type="password" class="form-control form-control-lg" id="password"
+                                            name="password" [(ngModel)]="userSignUp.password" #password="ngModel" required>
+                                            <small class="invalid-input" *ngIf="password.invalid && password.touched">Please Enter a Password</small>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit"
+                                            class="btn btn-primary btn-block btn-lg gradient-custom-4 text-white" [disabled]="userSignUpForm.invalid">user
+                                            Register</button>
+                                    </div>
+                                    <p class="text-center text-muted mt-3 mb-0">Have already an account? <a
+                                            (click)=" openLogin()" class="fw-bold text-body"><u>Login here</u></a></p>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<div *ngIf="showLogin" class="mt-2">
+
+    <section class="vh-100 bg-image" style="background-color: #0D6EFD">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center mt-2">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+                                <p class="alert alert-success" *ngIf="hideAlert">{{authSucess}}</p>
+                                <h2 class="text-uppercase text-center mb-3">Login Your account</h2>
+                                <p [ngStyle]="{'color':'red','text-align':'center'}">{{authError}}</p>
+                                <form #userLoginForm="ngForm" (ngSubmit)="userLogin(userLoginForm)">
+
+                                    <div class="form-outline mb-2">
+                                        <label class="form-label" for="form3Example3cg">Your Email</label>
+                                        <input type="email" class="form-control form-control-lg" id="email" name="email"
+                                            placeholder="" [(ngModel)]="LoginFormUser.email" #email="ngModel" email required>
+                                        <small class="invalid-input" *ngIf="email.invalid && email.touched">Please Enter a Valid Email</small>
+                                    </div>
+
+                                    <div class="form-outline mb-2">
+                                        <label class="form-label" for="form3Example4cg">Password</label>
+                                        <input type="password" class="form-control form-control-lg" id="password"
+                                            name="password" placeholder="" [(ngModel)]="LoginFormUser.password" #password="ngModel" required>
+                                        <small class="invalid-input" *ngIf="password.invalid && password.touched">Please Enter a Correct Password</small>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit"
+                                            class="btn btn-primary btn-block btn-lg gradient-custom-4 text-white" [disabled]="userLoginForm.invalid">User
+                                            Login</button>
+                                    </div>
+                                    <p class="text-center text-muted mt-3 mb-0">Don't Have an Account?<a
+                                            (click)="openSignUp()" class="fw-bold text-body"><u>Register here</u></a>
+                                    </p>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

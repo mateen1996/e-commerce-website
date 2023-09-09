@@ -1,0 +1,36 @@
+<div class="product-list">
+    <h1>All Product List</h1>
+    <p [ngClass]="'alert alert-success'" *ngIf="showMessage">{{deleteProductMessage}}</p>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Sr.No</th>
+            <th>Product Image</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Color</th>
+            <th>Product Category</th>
+            <th>Product Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of productList;let i=index;">
+            <td>{{i+1}}</td>
+            <td><img src="{{product.productImage}}" alt="" class="img"></td>
+            <td>{{product.productName}}</td>
+            <td>{{product.productPrice}}</td>
+            <td>{{product.productColor}}</td>
+            <td>{{product.productCategory}}</td>
+            <td>{{product.productDescription}}</td>
+            <td>
+                <!-- <button class="btn btn-danger" (click)="deleteProduct(product.id)" >Delete</button> -->
+                <fa-icon [icon]="deleteIcon" (click)="deleteProduct(product.id)"></fa-icon>
+                <a routerLink="/seller-update-product/{{product.id}}" class="adjust-update-link"><fa-icon [icon]="updateIcon"></fa-icon></a>
+                
+
+            </td>
+        </tr>
+    </tbody>
+</table>
